@@ -16,7 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     lazy var mapView = MAMapView(frame: UIScreen.main.bounds)
-
+    /// '?' must be followed by a call, member lookup, or subscript
+    var search : AMapSearchAPI?{
+        didSet{
+            search  = AMapSearchAPI()
+        }
+    }
   
     
     @IBAction func LocationBtnTap(_ sender: UIButton) {
@@ -26,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         mapView.delegate = self as MAMapViewDelegate
+        search?.delegate = self as AMapSearchDelegate
         setupMapSystem()
         view.insertSubview(mapView, belowSubview: toolbarView)
     }
@@ -43,7 +49,10 @@ extension ViewController:MAMapViewDelegate{
     }
     
 }
-
+//MARK:搜索功能代理
+extension ViewController:AMapSearchDelegate{
+    
+}
 //MARK:UI布局
 extension ViewController{
     
