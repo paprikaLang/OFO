@@ -22,9 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XpH-Tc-gue">
-                                <rect key="frame" x="0.0" y="64" width="768" height="960"/>
-                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-ay-jW7">
                                 <rect key="frame" x="0.0" y="768" width="768" height="256"/>
                                 <subviews>
@@ -64,14 +61,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XpH-Tc-gue" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jvt-8r-b0R"/>
-                            <constraint firstAttribute="trailing" secondItem="XpH-Tc-gue" secondAttribute="trailing" id="e92-Gi-gXC"/>
                             <constraint firstAttribute="trailing" secondItem="mo5-ay-jW7" secondAttribute="trailing" id="hXH-mg-cL1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mo5-ay-jW7" secondAttribute="bottom" id="jvZ-3J-60g"/>
                             <constraint firstItem="mo5-ay-jW7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="kQY-35-pum"/>
                             <constraint firstItem="mo5-ay-jW7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lN5-Cr-FMe"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XpH-Tc-gue" secondAttribute="bottom" id="pO5-HR-IEI"/>
-                            <constraint firstItem="XpH-Tc-gue" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pfm-us-MeS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mo5-ay-jW7" secondAttribute="bottom" id="ygr-5c-kuX"/>
                         </constraints>
                     </view>
@@ -84,7 +77,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="toolbarView" destination="aMb-xv-IBt" id="mWo-7l-nQW"/>
+                        <outlet property="imageView" destination="aMb-xv-IBt" id="19p-cK-WJv"/>
+                        <outlet property="toolbarView" destination="mo5-ay-jW7" id="XUp-T6-lS1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

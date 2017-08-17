@@ -10,52 +10,74 @@ import UIKit
 import SWRevealViewController
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var toolbarView: UIView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    lazy var mapView = MAMapView(frame: UIScreen.main.bounds)
 
-    @IBOutlet weak var toolbarView: UIImageView!
+  
     
     @IBAction func LocationBtnTap(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        mapView.delegate = self as MAMapViewDelegate
+        setupMapSystem()
+        view.insertSubview(mapView, belowSubview: toolbarView)
+    }
+
+}
+//MARK:高德地图代理
+extension ViewController:MAMapViewDelegate{
+   fileprivate func setupMapSystem(){
+        //地图一打开的精度越大越精准
+        mapView.zoomLevel = 15
+        //一直追踪定位
+        mapView.userTrackingMode = .follow
+        //先定位在追踪,否则不显示蓝点.(注意顺序)
+        mapView.showsUserLocation = true
+    }
+    
+}
+
+//MARK:UI布局
+extension ViewController{
+    
+   fileprivate func setupUI(){
+        //转换方向
+        imageView.image = #imageLiteral(resourceName: "whiteImage").rotate(UIImageOrientation(rawValue: 5)!)
+        setupNavi()
+        setupRevealVC()
+    }
+   fileprivate func setupNavi()  {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "Login_Logo"))
         self.navigationItem.leftBarButtonItem?.image = #imageLiteral(resourceName: "user_center_icon").withRenderingMode(.alwaysOriginal)
         self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "gift_icon").withRenderingMode(.alwaysOriginal)
         self.navigationItem.backBarButtonItem? = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+    }
+   fileprivate func setupRevealVC(){
         if let revealVC = revealViewController() {
             revealVC.rearViewRevealWidth = 280
             self.navigationItem.leftBarButtonItem?.target = revealVC
             self.navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(revealVC.panGestureRecognizer())
         }
-        toolbarView.image = #imageLiteral(resourceName: "whiteImage").rotate(UIImageOrientation(rawValue: 5)!)
-        
-        
-    }
 
-    /*
-     public enum UIImageOrientation : Int {
-     
-     
-     case up // default orientation
-     
-     case down // 180 deg rotation
-     
-     case left // 90 deg CCW
-     
-     case right // 90 deg CW
-     
-     case upMirrored // as above but image mirrored along other axis. horizontal flip
-     
-     case downMirrored // horizontal flip
-     
-     case leftMirrored // vertical flip
-     
-     case rightMirrored // vertical flip
-     }
-     
-     
-     
-     */
+    }
 }
+
+
+
+
+
+
+
+
+
+
 
