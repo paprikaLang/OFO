@@ -13,9 +13,18 @@
 		2F3F7B421F44B0530042262C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F7B411F44B0530042262C /* Assets.xcassets */; };
 		2F3F7B4E1F44CF5C0042262C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3F7B4D1F44CF5C0042262C /* MapKit.framework */; };
 		2F3F7B501F44CFEC0042262C /* ActivityWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B4F1F44CFEC0042262C /* ActivityWebViewController.swift */; };
+		2F3F7B541F4552300042262C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B531F4552300042262C /* MenuTableViewController.swift */; };
+		2F3F7B571F4586CB0042262C /* AboutUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B561F4586CB0042262C /* AboutUsController.swift */; };
+		2F3F7B621F459D790042262C /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5B1F459D790042262C /* UIImage+Color.m */; };
+		2F3F7B631F459D790042262C /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5D1F459D790042262C /* UIImage+Gif.m */; };
+		2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */; };
+		2F3F7B651F459D790042262C /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B611F459D790042262C /* UIImage+SubImage.m */; };
+		30B2BA1BE4D1EED75B703330 /* Pods_OFO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17364A14C1A47FD17A897EDA /* Pods-OFO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OFO.release.xcconfig"; path = "Pods/Target Support Files/Pods-OFO/Pods-OFO.release.xcconfig"; sourceTree = "<group>"; };
+		1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3F7B371F44B0530042262C /* OFO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OFO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3F7B3A1F44B0530042262C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3F7B3C1F44B0530042262C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,18 @@
 		2F3F7B461F44B0530042262C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F3F7B4D1F44CF5C0042262C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2F3F7B4F1F44CFEC0042262C /* ActivityWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityWebViewController.swift; sourceTree = "<group>"; };
+		2F3F7B531F4552300042262C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		2F3F7B551F457E5B0042262C /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		2F3F7B561F4586CB0042262C /* AboutUsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsController.swift; sourceTree = "<group>"; };
+		2F3F7B5A1F459D790042262C /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		2F3F7B5B1F459D790042262C /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		2F3F7B5C1F459D790042262C /* UIImage+Gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gif.h"; sourceTree = "<group>"; };
+		2F3F7B5D1F459D790042262C /* UIImage+Gif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gif.m"; sourceTree = "<group>"; };
+		2F3F7B5E1F459D790042262C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		2F3F7B601F459D790042262C /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SubImage.h"; sourceTree = "<group>"; };
+		2F3F7B611F459D790042262C /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SubImage.m"; sourceTree = "<group>"; };
+		8495CDB14105EE32CB4B8C97 /* Pods-OFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OFO/Pods-OFO.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3F7B4E1F44CF5C0042262C /* MapKit.framework in Frameworks */,
+				30B2BA1BE4D1EED75B703330 /* Pods_OFO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +66,7 @@
 				2F3F7B391F44B0530042262C /* OFO */,
 				2F3F7B381F44B0530042262C /* Products */,
 				2F3F7B4C1F44CF5C0042262C /* Frameworks */,
+				EF9EAC1308079A396C901C30 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,9 +84,13 @@
 				2F3F7B3A1F44B0530042262C /* AppDelegate.swift */,
 				2F3F7B3C1F44B0530042262C /* ViewController.swift */,
 				2F3F7B4F1F44CFEC0042262C /* ActivityWebViewController.swift */,
+				2F3F7B531F4552300042262C /* MenuTableViewController.swift */,
+				2F3F7B561F4586CB0042262C /* AboutUsController.swift */,
 				2F3F7B3E1F44B0530042262C /* Main.storyboard */,
 				2F3F7B411F44B0530042262C /* Assets.xcassets */,
 				2F3F7B461F44B0530042262C /* Info.plist */,
+				2F3F7B551F457E5B0042262C /* bridge.h */,
+				2F3F7B581F459D790042262C /* Additions */,
 			);
 			path = OFO;
 			sourceTree = "<group>";
@@ -72,8 +99,41 @@
 			isa = PBXGroup;
 			children = (
 				2F3F7B4D1F44CF5C0042262C /* MapKit.framework */,
+				1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F3F7B581F459D790042262C /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				2F3F7B591F459D790042262C /* UIImage */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		2F3F7B591F459D790042262C /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				2F3F7B5A1F459D790042262C /* UIImage+Color.h */,
+				2F3F7B5B1F459D790042262C /* UIImage+Color.m */,
+				2F3F7B5C1F459D790042262C /* UIImage+Gif.h */,
+				2F3F7B5D1F459D790042262C /* UIImage+Gif.m */,
+				2F3F7B5E1F459D790042262C /* UIImage+Rotate.h */,
+				2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */,
+				2F3F7B601F459D790042262C /* UIImage+SubImage.h */,
+				2F3F7B611F459D790042262C /* UIImage+SubImage.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		EF9EAC1308079A396C901C30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDB14105EE32CB4B8C97 /* Pods-OFO.debug.xcconfig */,
+				17364A14C1A47FD17A897EDA /* Pods-OFO.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F3F7B491F44B0530042262C /* Build configuration list for PBXNativeTarget "OFO" */;
 			buildPhases = (
+				7C31C2D0323AC0DE1E54C6E7 /* [CP] Check Pods Manifest.lock */,
 				2F3F7B331F44B0530042262C /* Sources */,
 				2F3F7B341F44B0530042262C /* Frameworks */,
 				2F3F7B351F44B0530042262C /* Resources */,
+				79D138DF69EB6CA48F8D4223 /* [CP] Embed Pods Frameworks */,
+				98CF741FDF61315EB7BAC783 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,14 +211,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		79D138DF69EB6CA48F8D4223 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OFO/Pods-OFO-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C31C2D0323AC0DE1E54C6E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98CF741FDF61315EB7BAC783 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OFO/Pods-OFO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2F3F7B331F44B0530042262C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3F7B651F459D790042262C /* UIImage+SubImage.m in Sources */,
+				2F3F7B541F4552300042262C /* MenuTableViewController.swift in Sources */,
 				2F3F7B3D1F44B0530042262C /* ViewController.swift in Sources */,
+				2F3F7B571F4586CB0042262C /* AboutUsController.swift in Sources */,
+				2F3F7B621F459D790042262C /* UIImage+Color.m in Sources */,
 				2F3F7B501F44CFEC0042262C /* ActivityWebViewController.swift in Sources */,
 				2F3F7B3B1F44B0530042262C /* AppDelegate.swift in Sources */,
+				2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */,
+				2F3F7B631F459D790042262C /* UIImage+Gif.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +385,7 @@
 		};
 		2F3F7B4A1F44B0530042262C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8495CDB14105EE32CB4B8C97 /* Pods-OFO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -277,12 +395,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.paprika.OFO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OFO/bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		2F3F7B4B1F44B0530042262C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17364A14C1A47FD17A897EDA /* Pods-OFO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -292,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.paprika.OFO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = OFO/bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
