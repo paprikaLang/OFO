@@ -18,6 +18,7 @@
 		2F3F7B631F459D790042262C /* UIImage+Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5D1F459D790042262C /* UIImage+Gif.m */; };
 		2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */; };
 		2F3F7B651F459D790042262C /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B611F459D790042262C /* UIImage+SubImage.m */; };
+		2F3F7B671F466F700042262C /* MyPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B661F466F700042262C /* MyPinAnnotation.swift */; };
 		30B2BA1BE4D1EED75B703330 /* Pods_OFO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		2F3F7B601F459D790042262C /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SubImage.h"; sourceTree = "<group>"; };
 		2F3F7B611F459D790042262C /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SubImage.m"; sourceTree = "<group>"; };
+		2F3F7B661F466F700042262C /* MyPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPinAnnotation.swift; sourceTree = "<group>"; };
 		8495CDB14105EE32CB4B8C97 /* Pods-OFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OFO/Pods-OFO.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 			children = (
 				2F3F7B3A1F44B0530042262C /* AppDelegate.swift */,
 				2F3F7B3C1F44B0530042262C /* ViewController.swift */,
+				2F3F7B661F466F700042262C /* MyPinAnnotation.swift */,
 				2F3F7B4F1F44CFEC0042262C /* ActivityWebViewController.swift */,
 				2F3F7B531F4552300042262C /* MenuTableViewController.swift */,
 				2F3F7B561F4586CB0042262C /* AboutUsController.swift */,
@@ -266,6 +269,7 @@
 				2F3F7B571F4586CB0042262C /* AboutUsController.swift in Sources */,
 				2F3F7B621F459D790042262C /* UIImage+Color.m in Sources */,
 				2F3F7B501F44CFEC0042262C /* ActivityWebViewController.swift in Sources */,
+				2F3F7B671F466F700042262C /* MyPinAnnotation.swift in Sources */,
 				2F3F7B3B1F44B0530042262C /* AppDelegate.swift in Sources */,
 				2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */,
 				2F3F7B631F459D790042262C /* UIImage+Gif.m in Sources */,
