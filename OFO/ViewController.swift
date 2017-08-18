@@ -8,7 +8,7 @@
 
 import UIKit
 import SWRevealViewController
-
+import FTIndicator
 
 class ViewController: UIViewController {
     
@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     var pinView : MAAnnotationView!
     var nearBy :Bool! = true
+    var start,end :CLLocationCoordinate2D!
     
     lazy var mapView = MAMapView(frame: UIScreen.main.bounds)
     /// '?' must be followed by a call, member lookup, or subscript
@@ -25,7 +26,12 @@ class ViewController: UIViewController {
     
     lazy var myPin : MyPinAnnotation = MyPinAnnotation()
     
+    lazy var walkManager:AMapNaviWalkManager = AMapNaviWalkManager()
+    
+    
+    
     @IBAction func LocationBtnTap(_ sender: UIButton) {
+        nearBy = true
         searchBikeNearby()
     }
     
@@ -35,11 +41,40 @@ class ViewController: UIViewController {
         
         mapView.delegate = self as MAMapViewDelegate
         search.delegate = self as AMapSearchDelegate
+        walkManager.delegate = self as AMapNaviWalkManagerDelegate
         setupMapSystem()
         view.insertSubview(mapView, belowSubview: toolbarView)
     }
 
 }
+
+//MARK:导航步行路线规划
+extension ViewController:AMapNaviWalkManagerDelegate{
+    func walkManager(onCalculateRouteSuccess walkManager: AMapNaviWalkManager) {
+        print("规划成功")
+        mapView.removeOverlays(mapView.overlays)
+        var coordinates = walkManager.naviRoute!.routeCoordinates.map{
+            return CLLocationCoordinate2D(latitude:CLLocationDegrees( $0.latitude), longitude:CLLocationDegrees($0.longitude))
+        }
+        let polyline = MAPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
+        mapView.add(polyline)
+        alertAction(routeTime: walkManager.naviRoute!.routeTime, routeLength:walkManager.naviRoute!.routeLength)
+    }
+    
+    func alertAction(routeTime:Int,routeLength:Int){
+        let walkTime = routeTime/60
+        var timeDes = "一分钟内"
+        if walkTime > 0 {
+            timeDes = walkTime.description + "分钟"
+        }
+        let hintTitle = "步行" + timeDes
+        let hintSubTitle = "距离" + routeLength.description + "米"
+        FTIndicator.setIndicatorStyle(.dark)
+        FTIndicator.showNotification(with: #imageLiteral(resourceName: "clock"), title: hintTitle, message: hintSubTitle)
+    }
+}
+
+
 //MARK:高德地图代理
 extension ViewController:MAMapViewDelegate{
    fileprivate func setupMapSystem(){
@@ -81,14 +116,17 @@ extension ViewController:MAMapViewDelegate{
         annotationView?.animatesDrop = true
         return annotationView
     }
+    
+    //地图初始化成功后
     func mapInitComplete(_ mapView: MAMapView!) {
     
         myPin.coordinate = mapView.centerCoordinate
         myPin.lockedScreenPoint = CGPoint(x: view.bounds.width/2, y: view.bounds.height/2)
         myPin.isLockedToScreen = true
-        
+        //小黄车和大头钉一块儿显示
         mapView.addAnnotation(myPin)
         mapView.showAnnotations([myPin], animated: true)
+        searchBikeNearby()
     }
     //移动地图的交互
     func mapView(_ mapView: MAMapView!, mapDidMoveByUser wasUserAction: Bool) {
@@ -122,6 +160,42 @@ extension ViewController:MAMapViewDelegate{
                              self.pinView.frame.origin.y = 0
                             
                           }, completion: nil)
+    }
+    func mapView(_ mapView: MAMapView!, didAddAnnotationViews views: [Any]!) {
+        let aViews = views as! [MAAnnotationView]
+        for aView in aViews {
+            
+            guard aView.annotation is MAPointAnnotation else {
+                continue
+            }
+            aView.transform = CGAffineTransform(scaleX: 0, y: 0)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: { 
+                aView.transform = .identity
+            }, completion: nil)
+        }
+    }
+    func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
+        print("点击了我")
+        start = myPin.coordinate
+        end = view.annotation.coordinate
+        guard let startPoint = AMapNaviPoint.location(withLatitude: CGFloat(start.latitude), longitude: CGFloat(start.longitude)),
+        let endPoint = AMapNaviPoint.location(withLatitude: CGFloat(end.latitude), longitude: CGFloat(end.longitude)) else {
+            return
+        }
+        walkManager.calculateWalkRoute(withStart: [startPoint], end: [endPoint])
+    }
+    //渲染线路,否则只有overlay(polyline)但是显示不出来(注意当执行路线计算成功的代理回调时应该把先前的路线都去掉)
+    func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
+        if overlay is MAPolyline {
+            myPin.isLockedToScreen = false
+            //地图应该显示路线图所在的区域
+            mapView.visibleMapRect = overlay.boundingMapRect
+            let render:MAPolylineRenderer = MAPolylineRenderer(overlay: overlay)
+            render.lineWidth = 5
+            render.strokeColor = UIColor.blue
+            return render
+        }
+        return nil
     }
 }
 //MARK:搜索功能代理
