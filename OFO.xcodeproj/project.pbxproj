@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1FE5A41F491F8500D88F9B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE5A31F491F8500D88F9B /* InputController.swift */; };
+		2F1FE5A61F4920F900D88F9B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE5A51F4920F900D88F9B /* UIColor+Extension.swift */; };
+		2F1FE5A81F49573F00D88F9B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE5A71F49573F00D88F9B /* View+Extension.swift */; };
+		2F1FE5AA1F496A3E00D88F9B /* ShowCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE5A91F496A3E00D88F9B /* ShowCodeController.swift */; };
+		2F1FE5BB1F49890000D88F9B /* 0_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5AC1F49890000D88F9B /* 0_D.m4a */; };
+		2F1FE5BC1F49890000D88F9B /* 1_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5AD1F49890000D88F9B /* 1_D.m4a */; };
+		2F1FE5BD1F49890000D88F9B /* 2_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5AE1F49890000D88F9B /* 2_D.m4a */; };
+		2F1FE5BE1F49890000D88F9B /* 3_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5AF1F49890000D88F9B /* 3_D.m4a */; };
+		2F1FE5BF1F49890000D88F9B /* 4_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B01F49890000D88F9B /* 4_D.m4a */; };
+		2F1FE5C01F49890000D88F9B /* 5_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B11F49890000D88F9B /* 5_D.m4a */; };
+		2F1FE5C11F49890000D88F9B /* 6_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B21F49890000D88F9B /* 6_D.m4a */; };
+		2F1FE5C21F49890000D88F9B /* 7_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B31F49890000D88F9B /* 7_D.m4a */; };
+		2F1FE5C31F49890000D88F9B /* 8_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B41F49890000D88F9B /* 8_D.m4a */; };
+		2F1FE5C41F49890000D88F9B /* 9_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B51F49890000D88F9B /* 9_D.m4a */; };
+		2F1FE5C51F49890000D88F9B /* 上车前_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B61F49890000D88F9B /* 上车前_D.m4a */; };
+		2F1FE5C61F49890000D88F9B /* 上车前_LH.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B71F49890000D88F9B /* 上车前_LH.m4a */; };
+		2F1FE5C71F49890000D88F9B /* 您的解锁码为_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B81F49890000D88F9B /* 您的解锁码为_D.m4a */; };
+		2F1FE5C81F49890000D88F9B /* 骑行结束_D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5B91F49890000D88F9B /* 骑行结束_D.m4a */; };
+		2F1FE5C91F49890000D88F9B /* 骑行结束_LH.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2F1FE5BA1F49890000D88F9B /* 骑行结束_LH.m4a */; };
+		2F1FE5CB1F4994A200D88F9B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FE5CA1F4994A200D88F9B /* Network.swift */; };
 		2F3F7B3B1F44B0530042262C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B3A1F44B0530042262C /* AppDelegate.swift */; };
 		2F3F7B3D1F44B0530042262C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B3C1F44B0530042262C /* ViewController.swift */; };
 		2F3F7B401F44B0530042262C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F7B3E1F44B0530042262C /* Main.storyboard */; };
@@ -19,12 +39,33 @@
 		2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B5F1F459D790042262C /* UIImage+Rotate.m */; };
 		2F3F7B651F459D790042262C /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B611F459D790042262C /* UIImage+SubImage.m */; };
 		2F3F7B671F466F700042262C /* MyPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F7B661F466F700042262C /* MyPinAnnotation.swift */; };
+		2F5B6D7B1F471BD600D61C64 /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5B6D7A1F471BD600D61C64 /* ScanController.swift */; };
 		30B2BA1BE4D1EED75B703330 /* Pods_OFO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17364A14C1A47FD17A897EDA /* Pods-OFO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OFO.release.xcconfig"; path = "Pods/Target Support Files/Pods-OFO/Pods-OFO.release.xcconfig"; sourceTree = "<group>"; };
 		1C26F26DDA414D4CDE210000 /* Pods_OFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1FE5A31F491F8500D88F9B /* InputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
+		2F1FE5A51F4920F900D88F9B /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		2F1FE5A71F49573F00D88F9B /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		2F1FE5A91F496A3E00D88F9B /* ShowCodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCodeController.swift; sourceTree = "<group>"; };
+		2F1FE5AC1F49890000D88F9B /* 0_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0_D.m4a; sourceTree = "<group>"; };
+		2F1FE5AD1F49890000D88F9B /* 1_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1_D.m4a; sourceTree = "<group>"; };
+		2F1FE5AE1F49890000D88F9B /* 2_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2_D.m4a; sourceTree = "<group>"; };
+		2F1FE5AF1F49890000D88F9B /* 3_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B01F49890000D88F9B /* 4_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B11F49890000D88F9B /* 5_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B21F49890000D88F9B /* 6_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B31F49890000D88F9B /* 7_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B41F49890000D88F9B /* 8_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B51F49890000D88F9B /* 9_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9_D.m4a; sourceTree = "<group>"; };
+		2F1FE5B61F49890000D88F9B /* 上车前_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "上车前_D.m4a"; sourceTree = "<group>"; };
+		2F1FE5B71F49890000D88F9B /* 上车前_LH.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "上车前_LH.m4a"; sourceTree = "<group>"; };
+		2F1FE5B81F49890000D88F9B /* 您的解锁码为_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "您的解锁码为_D.m4a"; sourceTree = "<group>"; };
+		2F1FE5B91F49890000D88F9B /* 骑行结束_D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "骑行结束_D.m4a"; sourceTree = "<group>"; };
+		2F1FE5BA1F49890000D88F9B /* 骑行结束_LH.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "骑行结束_LH.m4a"; sourceTree = "<group>"; };
+		2F1FE5CA1F4994A200D88F9B /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2F3F7B371F44B0530042262C /* OFO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OFO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3F7B3A1F44B0530042262C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3F7B3C1F44B0530042262C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +85,7 @@
 		2F3F7B601F459D790042262C /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SubImage.h"; sourceTree = "<group>"; };
 		2F3F7B611F459D790042262C /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SubImage.m"; sourceTree = "<group>"; };
 		2F3F7B661F466F700042262C /* MyPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPinAnnotation.swift; sourceTree = "<group>"; };
+		2F5B6D7A1F471BD600D61C64 /* ScanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
 		8495CDB14105EE32CB4B8C97 /* Pods-OFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OFO/Pods-OFO.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +101,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F1FE5AB1F49890000D88F9B /* music */ = {
+			isa = PBXGroup;
+			children = (
+				2F1FE5AC1F49890000D88F9B /* 0_D.m4a */,
+				2F1FE5AD1F49890000D88F9B /* 1_D.m4a */,
+				2F1FE5AE1F49890000D88F9B /* 2_D.m4a */,
+				2F1FE5AF1F49890000D88F9B /* 3_D.m4a */,
+				2F1FE5B01F49890000D88F9B /* 4_D.m4a */,
+				2F1FE5B11F49890000D88F9B /* 5_D.m4a */,
+				2F1FE5B21F49890000D88F9B /* 6_D.m4a */,
+				2F1FE5B31F49890000D88F9B /* 7_D.m4a */,
+				2F1FE5B41F49890000D88F9B /* 8_D.m4a */,
+				2F1FE5B51F49890000D88F9B /* 9_D.m4a */,
+				2F1FE5B61F49890000D88F9B /* 上车前_D.m4a */,
+				2F1FE5B71F49890000D88F9B /* 上车前_LH.m4a */,
+				2F1FE5B81F49890000D88F9B /* 您的解锁码为_D.m4a */,
+				2F1FE5B91F49890000D88F9B /* 骑行结束_D.m4a */,
+				2F1FE5BA1F49890000D88F9B /* 骑行结束_LH.m4a */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
 		2F3F7B2E1F44B0530042262C = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +144,19 @@
 		2F3F7B391F44B0530042262C /* OFO */ = {
 			isa = PBXGroup;
 			children = (
+				2F1FE5AB1F49890000D88F9B /* music */,
 				2F3F7B3A1F44B0530042262C /* AppDelegate.swift */,
 				2F3F7B3C1F44B0530042262C /* ViewController.swift */,
+				2F1FE5CA1F4994A200D88F9B /* Network.swift */,
 				2F3F7B661F466F700042262C /* MyPinAnnotation.swift */,
 				2F3F7B4F1F44CFEC0042262C /* ActivityWebViewController.swift */,
 				2F3F7B531F4552300042262C /* MenuTableViewController.swift */,
 				2F3F7B561F4586CB0042262C /* AboutUsController.swift */,
+				2F5B6D7A1F471BD600D61C64 /* ScanController.swift */,
+				2F1FE5A31F491F8500D88F9B /* InputController.swift */,
+				2F1FE5A91F496A3E00D88F9B /* ShowCodeController.swift */,
+				2F1FE5A51F4920F900D88F9B /* UIColor+Extension.swift */,
+				2F1FE5A71F49573F00D88F9B /* View+Extension.swift */,
 				2F3F7B3E1F44B0530042262C /* Main.storyboard */,
 				2F3F7B411F44B0530042262C /* Assets.xcassets */,
 				2F3F7B461F44B0530042262C /* Info.plist */,
@@ -203,8 +274,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1FE5C91F49890000D88F9B /* 骑行结束_LH.m4a in Resources */,
+				2F1FE5C11F49890000D88F9B /* 6_D.m4a in Resources */,
+				2F1FE5BB1F49890000D88F9B /* 0_D.m4a in Resources */,
 				2F3F7B421F44B0530042262C /* Assets.xcassets in Resources */,
+				2F1FE5C41F49890000D88F9B /* 9_D.m4a in Resources */,
+				2F1FE5BD1F49890000D88F9B /* 2_D.m4a in Resources */,
+				2F1FE5BE1F49890000D88F9B /* 3_D.m4a in Resources */,
+				2F1FE5C61F49890000D88F9B /* 上车前_LH.m4a in Resources */,
+				2F1FE5C51F49890000D88F9B /* 上车前_D.m4a in Resources */,
 				2F3F7B401F44B0530042262C /* Main.storyboard in Resources */,
+				2F1FE5BC1F49890000D88F9B /* 1_D.m4a in Resources */,
+				2F1FE5C71F49890000D88F9B /* 您的解锁码为_D.m4a in Resources */,
+				2F1FE5C21F49890000D88F9B /* 7_D.m4a in Resources */,
+				2F1FE5C81F49890000D88F9B /* 骑行结束_D.m4a in Resources */,
+				2F1FE5BF1F49890000D88F9B /* 4_D.m4a in Resources */,
+				2F1FE5C31F49890000D88F9B /* 8_D.m4a in Resources */,
+				2F1FE5C01F49890000D88F9B /* 5_D.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1FE5A41F491F8500D88F9B /* InputController.swift in Sources */,
 				2F3F7B651F459D790042262C /* UIImage+SubImage.m in Sources */,
+				2F1FE5CB1F4994A200D88F9B /* Network.swift in Sources */,
+				2F5B6D7B1F471BD600D61C64 /* ScanController.swift in Sources */,
 				2F3F7B541F4552300042262C /* MenuTableViewController.swift in Sources */,
 				2F3F7B3D1F44B0530042262C /* ViewController.swift in Sources */,
 				2F3F7B571F4586CB0042262C /* AboutUsController.swift in Sources */,
@@ -271,8 +360,11 @@
 				2F3F7B501F44CFEC0042262C /* ActivityWebViewController.swift in Sources */,
 				2F3F7B671F466F700042262C /* MyPinAnnotation.swift in Sources */,
 				2F3F7B3B1F44B0530042262C /* AppDelegate.swift in Sources */,
+				2F1FE5A61F4920F900D88F9B /* UIColor+Extension.swift in Sources */,
 				2F3F7B641F459D790042262C /* UIImage+Rotate.m in Sources */,
+				2F1FE5A81F49573F00D88F9B /* View+Extension.swift in Sources */,
 				2F3F7B631F459D790042262C /* UIImage+Gif.m in Sources */,
+				2F1FE5AA1F496A3E00D88F9B /* ShowCodeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

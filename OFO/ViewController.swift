@@ -15,20 +15,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var toolbarView: UIView!
     
     @IBOutlet weak var imageView: UIImageView!
-    
+    var mypinView : MAAnnotationView!
     var pinView : MAAnnotationView!
     var nearBy :Bool! = true
     var start,end :CLLocationCoordinate2D!
+    var polyLine:MAPolyline!
+    var naviWalkView : AMapNaviWalkView!
     
     lazy var mapView = MAMapView(frame: UIScreen.main.bounds)
     /// '?' must be followed by a call, member lookup, or subscript
     lazy var search :AMapSearchAPI = AMapSearchAPI()
     
-    lazy var myPin : MyPinAnnotation = MyPinAnnotation()
+    lazy var centerPin : MyPinAnnotation = MyPinAnnotation()
     
     lazy var walkManager:AMapNaviWalkManager = AMapNaviWalkManager()
+   
+    lazy var shapelayer:CAShapeLayer = CAShapeLayer()
     
-    
+    deinit {
+        walkManager.stopNavi()
+        walkManager.delegate = nil
+        
+    }
     
     @IBAction func LocationBtnTap(_ sender: UIButton) {
         nearBy = true
@@ -37,28 +45,86 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         
-        mapView.delegate = self as MAMapViewDelegate
-        search.delegate = self as AMapSearchDelegate
-        walkManager.delegate = self as AMapNaviWalkManagerDelegate
+        setupUI()
         setupMapSystem()
-        view.insertSubview(mapView, belowSubview: toolbarView)
+        
     }
 
 }
 
+//MARK:动画代理
+extension ViewController:CAAnimationDelegate{
+
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        self.mapView.add(self.polyLine)
+        shapelayer.removeFromSuperlayer()
+    }
+}
+
+//MARK:导航图像代理
+extension ViewController:AMapNaviWalkViewDelegate{
+    
+}
 //MARK:导航步行路线规划
 extension ViewController:AMapNaviWalkManagerDelegate{
     func walkManager(onCalculateRouteSuccess walkManager: AMapNaviWalkManager) {
         print("规划成功")
+        // mapView.add(polyLine)添加的overlay都在这里销毁了否则地图都是线
         mapView.removeOverlays(mapView.overlays)
         var coordinates = walkManager.naviRoute!.routeCoordinates.map{
             return CLLocationCoordinate2D(latitude:CLLocationDegrees( $0.latitude), longitude:CLLocationDegrees($0.longitude))
         }
-        let polyline = MAPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
-        mapView.add(polyline)
+        //这里的这线图就是render的overlay
+//        guard let polyline = MAPolyline(coordinates: &coordinates, count: UInt(coordinates.count)) else {
+//            return
+//        }
+        guard let polyline = MAPolyline.init(coordinates: &coordinates, count: UInt(coordinates.count)) else {
+            return
+        }
+        polyLine = polyline
+        let path = UIBezierPath()
+        for i in 0..<Int( polyline.pointCount){
+            let mp = polyline.points[i] as MAMapPoint
+            if i==0 {
+            path.move(to: pointForMapPoint(mapPoint: mp))
+            }else{
+                path.addLine(to: pointForMapPoint(mapPoint: mp))
+            }
+        }
+        //创建shapeLayer
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.strokeColor = UIColor.blue.cgColor
+        layer.fillColor = UIColor.clear.cgColor
+        layer.lineWidth = 4
+        mapView.layer.addSublayer(layer)
+        //创建动画
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = true
+        animation.delegate = self as CAAnimationDelegate
+        
+        layer.add(animation, forKey: nil)
+        shapelayer = layer
+        //mapView.add(polyline)
         alertAction(routeTime: walkManager.naviRoute!.routeTime, routeLength:walkManager.naviRoute!.routeLength)
+    }
+    func pointForMapPoint(mapPoint:MAMapPoint)->CGPoint{
+        var point = CGPoint()
+        let viewWidth = Double(mapView.bounds.width)
+        let viewHeight = Double(mapView.bounds.height)
+        let rect = mapView.visibleMapRect;
+        let scaleW = rect.size.width/viewWidth
+        let scaleH = rect.size.height/viewHeight
+        point.x = CGFloat((mapPoint.x - rect.origin.x) / scaleW);
+        point.y = CGFloat((mapPoint.y - rect.origin.y) / scaleH);
+        return point
+        
     }
     
     func alertAction(routeTime:Int,routeLength:Int){
@@ -77,30 +143,30 @@ extension ViewController:AMapNaviWalkManagerDelegate{
 
 //MARK:高德地图代理
 extension ViewController:MAMapViewDelegate{
-   fileprivate func setupMapSystem(){
-        //地图一打开的精度越大越精准
-        mapView.zoomLevel = 15
-        //一直追踪定位
-        mapView.userTrackingMode = .follow
-        //先定位在追踪,否则不显示蓝点.(注意顺序)
-        mapView.showsUserLocation = true
-    
-    }
+
     func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
         //如果是用户图标不自定义,返回就行了
         if annotation is MAUserLocation{
-            return nil
-        }
-        if annotation is MyPinAnnotation {
-            let reuseId = "myBikeId"
+            let reuseId = "myId"
             var myPinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MAPinAnnotationView
             if myPinView == nil {
                 myPinView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             }
             myPinView?.canShowCallout = false
-            myPinView?.image = #imageLiteral(resourceName: "homePage_wholeAnchor")
-            pinView = myPinView
+            
+            mypinView = myPinView
             return myPinView
+        }
+        if annotation is MyPinAnnotation {
+            let reuseId = "centerId"
+            var centerPinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MAPinAnnotationView
+            if centerPinView == nil {
+                centerPinView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            }
+            centerPinView?.canShowCallout = false
+            centerPinView?.image = #imageLiteral(resourceName: "homePage_wholeAnchor")
+            pinView = centerPinView
+            return centerPinView
         }
         let reuseId = "bikeId"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MAPinAnnotationView
@@ -120,12 +186,12 @@ extension ViewController:MAMapViewDelegate{
     //地图初始化成功后
     func mapInitComplete(_ mapView: MAMapView!) {
     
-        myPin.coordinate = mapView.centerCoordinate
-        myPin.lockedScreenPoint = CGPoint(x: view.bounds.width/2, y: view.bounds.height/2)
-        myPin.isLockedToScreen = true
+        centerPin.coordinate = mapView.centerCoordinate
+        centerPin.lockedScreenPoint = CGPoint(x: view.bounds.width/2, y: view.bounds.height/2)
+        centerPin.isLockedToScreen = true
         //小黄车和大头钉一块儿显示
-        mapView.addAnnotation(myPin)
-        mapView.showAnnotations([myPin], animated: true)
+        mapView.addAnnotation(centerPin)
+        mapView.showAnnotations([centerPin], animated: true)
         searchBikeNearby()
     }
     //移动地图的交互
@@ -133,7 +199,7 @@ extension ViewController:MAMapViewDelegate{
         if wasUserAction {
             
             //中心图标不能更改,否则定位范围不会改变
-            myPin.isLockedToScreen = true
+            centerPin.isLockedToScreen = true
             
             //移动之后重新在黑图标附近寻找小黄车
             searchCustomLocation(mapView.centerCoordinate)
@@ -175,8 +241,10 @@ extension ViewController:MAMapViewDelegate{
         }
     }
     func mapView(_ mapView: MAMapView!, didSelect view: MAAnnotationView!) {
+        
         print("点击了我")
-        start = myPin.coordinate
+        start = mypinView.annotation.coordinate
+        //start = myPin.coordinate
         end = view.annotation.coordinate
         guard let startPoint = AMapNaviPoint.location(withLatitude: CGFloat(start.latitude), longitude: CGFloat(start.longitude)),
         let endPoint = AMapNaviPoint.location(withLatitude: CGFloat(end.latitude), longitude: CGFloat(end.longitude)) else {
@@ -184,13 +252,17 @@ extension ViewController:MAMapViewDelegate{
         }
         walkManager.calculateWalkRoute(withStart: [startPoint], end: [endPoint])
     }
+    //点击任意点
+    func mapView(_ mapView: MAMapView!, didSingleTappedAt coordinate: CLLocationCoordinate2D) {
+        
+    }
     //渲染线路,否则只有overlay(polyline)但是显示不出来(注意当执行路线计算成功的代理回调时应该把先前的路线都去掉)
     func mapView(_ mapView: MAMapView!, rendererFor overlay: MAOverlay!) -> MAOverlayRenderer! {
         if overlay is MAPolyline {
-            myPin.isLockedToScreen = false
+            centerPin.isLockedToScreen = false
             //地图应该显示路线图所在的区域
             mapView.visibleMapRect = overlay.boundingMapRect
-            let render:MAPolylineRenderer = MAPolylineRenderer(overlay: overlay)
+            let render:MAPolylineRenderer = MAPolylineRenderer(polyline: polyLine)
             render.lineWidth = 5
             render.strokeColor = UIColor.blue
             return render
@@ -250,7 +322,33 @@ extension ViewController:AMapSearchDelegate{
 //MARK:UI布局
 extension ViewController{
     
+    fileprivate func setupMapSystem(){
+        mapView.delegate = self as MAMapViewDelegate
+        search.delegate = self as AMapSearchDelegate
+//        initWalkView()
+        walkManager.delegate = self as AMapNaviWalkManagerDelegate
+        //将driveView添加为导航数据的Representative，使其可以接收到导航诱导数据
+//        walkManager.addDataRepresentative(naviWalkView)
+        //地图一打开的精度越大越精准
+        mapView.zoomLevel = 15
+        //一直追踪定位,可将定位放在地图中间并自动放大区域
+        mapView.userTrackingMode = .follow
+        //先定位在追踪,否则不显示蓝点.(注意顺序)
+        mapView.showsUserLocation = true
+        //关闭相机旋转,降低能耗
+        mapView.isRotateCameraEnabled = false
+        
+        
+    }
+    func initWalkView(){
+        naviWalkView = AMapNaviWalkView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        naviWalkView.delegate = self
+        naviWalkView.normalTexture = #imageLiteral(resourceName: "HomePage_path")
+        view.addSubview(naviWalkView)
+    }
+    
    fileprivate func setupUI(){
+        view.insertSubview(mapView, belowSubview: toolbarView)
         //转换方向
         imageView.image = #imageLiteral(resourceName: "whiteImage").rotate(UIImageOrientation(rawValue: 5)!)
         setupNavi()

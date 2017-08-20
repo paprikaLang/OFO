@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>小黄车需要打开闪光灯来扫描二维码</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>ofo小黄车需要您的位置，帮助您记录你的用车轨迹，若拒绝，后台将无法准确的获取您的行车轨迹。</string>
 	<key>CFBundleDevelopmentRegion</key>

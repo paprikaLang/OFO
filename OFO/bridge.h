@@ -13,3 +13,4 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapNaviKit/AMapNaviKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+#import <AVOSCloud/AVOSCloud.h>
